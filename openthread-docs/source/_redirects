@@ -1,0 +1,10 @@
+# Cloudflare Pages redirects.
+#
+# Every page that is moved or renamed must keep its old URL working by adding
+# an entry here. Format: <from> <to> [status]
+
+# External sites
+/github https://github.com/openthread 301
+
+# Example of a moved page:
+# /docs/old/location /docs/guides/build 301

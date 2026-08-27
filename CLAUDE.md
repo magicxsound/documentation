@@ -39,3 +39,12 @@ Beyond stock mkdocs-material, four custom pieces run at build time:
 - Upstream contributions target the `next` branch, not `main` (`remote_branch` in `mkdocs.yml`).
 
 The contributor-facing version of these rules is `source/docs/contribute/documentation.md`; keep the two in sync when either changes.
+
+## `openthread-docs/`
+
+A self-contained OpenThread documentation site scaffolded from this one (same
+MkDocs + Material setup, HACS-specific pieces removed: no `macros.py`
+translation macros, no `hacs:my` shortcode). It has its own `mkdocs.yml`,
+`requirements.txt`, `scripts/`, and CI workflow — run its commands from inside
+that directory, not from the repository root. Its content is a skeleton; see
+`openthread-docs/README.md`.

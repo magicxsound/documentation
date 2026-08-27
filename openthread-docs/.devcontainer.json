@@ -1,0 +1,15 @@
+{
+	"name": "openthread/documentation",
+	"image": "mcr.microsoft.com/devcontainers/python:3.13",
+	"postCreateCommand": "scripts/setup",
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"editor.formatOnPaste": false,
+				"editor.formatOnSave": false,
+				"editor.formatOnType": false,
+				"files.trimTrailingWhitespace": true
+			}
+		}
+	}
+}

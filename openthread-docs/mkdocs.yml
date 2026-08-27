@@ -1,0 +1,167 @@
+site_name: OpenThread
+site_description: An open-source implementation of the Thread networking protocol
+site_url: !ENV [SITE_URL, CF_PAGES_URL, "https://openthread.io"]
+repo_url: https://github.com/openthread/openthread
+repo_name: openthread/openthread
+remote_branch: !ENV [CF_PAGES_BRANCH, "main"]
+docs_dir: source
+site_dir: build
+use_directory_urls: true
+strict: true
+validation:
+  links:
+    absolute_links: relative_to_docs
+    anchors: warn
+    unrecognized_links: warn
+    not_found: warn
+  nav:
+    omitted_files: warn
+    not_found: warn
+    absolute_links: relative_to_docs
+theme:
+  name: material
+  language: en
+  custom_dir: source/overrides
+  font:
+    code: "Consolas"
+    text: "Instrument Sans"
+  features:
+    - announce.dismiss
+    - content.code.copy
+    - content.footnote.tooltips
+    - content.tooltips
+    - navigation.indexes
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.path
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    - toc.integrate
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to system preference
+  icon:
+    annotation: material/information
+plugins:
+  - privacy
+  - search:
+      lang: en
+  - social:
+      cards: true
+      cards_layout_options:
+        background_color: "#1A73E8"
+  - tags
+hooks:
+  - source/hooks/html_tag_modifier.py
+extra:
+  # Where the "Edit this page" button points. This is the repository holding
+  # *this* documentation, which may differ from repo_url above.
+  docs_repo_url: https://github.com/openthread/openthread.io
+  # Rendered as buttons on the home page.
+  home_buttons:
+    - link: /docs/guides/
+      title: Guides
+    - link: /docs/reference/
+      title: Reference
+    - link: /docs/contribute/
+      title: Contribute
+  # Rendered in the "Help and support" section at the bottom of every page.
+  resources:
+    - link: https://github.com/openthread/openthread/blob/main/CODE_OF_CONDUCT.md
+      title: Code of Conduct
+      icon: fontawesome/solid/scale-balanced
+    - link: https://www.threadgroup.org/
+      title: Thread Group
+      icon: fontawesome/solid/network-wired
+    - link: https://squidfunk.github.io/mkdocs-material/
+      title: Made with Material for MkDocs
+      icon: logo
+  support:
+    - link: https://github.com/openthread/openthread/issues
+      title: Create an issue
+    - link: https://github.com/openthread/openthread/discussions
+      title: Ask in Discussions
+
+# Extensions
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      normalize_issue_symbols: true
+      repo_url_shorthand: true
+      user: openthread
+      repo: openthread
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      auto_append:
+        - source/includes/abbreviations.md
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+      combine_header_slug: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+extra_css:
+  - assets/stylesheets/extra.css
+
+not_in_nav: |
+  includes/*
+nav:
+  - Home: index.md
+  - Guides:
+    - docs/guides/index.md
+    - docs/guides/build.md
+    - docs/guides/simulation.md
+  - Reference:
+    - docs/reference/index.md
+    - docs/reference/cli.md
+  - Contribute:
+    - docs/contribute/index.md
+    - docs/contribute/documentation.md
